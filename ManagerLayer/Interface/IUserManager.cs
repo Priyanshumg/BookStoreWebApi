@@ -10,5 +10,6 @@ namespace ManagerLayer.Interface
     {
         public UserEntity UserRegistration(RegisterModel model);
         public string UserLogin(LoginModel model);
+        public ForgetPasswordModel ForgetPassword(string UserEmail);
     }
 }
