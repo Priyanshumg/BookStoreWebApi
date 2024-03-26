@@ -38,6 +38,8 @@ namespace BookstoreBackend
             // Dependency Injection for services
             services.AddTransient<IUserInterface, UserRepository>();
             services.AddTransient<IUserManager, UserManager>();
+            services.AddTransient<IBookManager, BookManager>();
+
 
             // Swagger Configuration
             services.AddSwaggerGen(option =>
