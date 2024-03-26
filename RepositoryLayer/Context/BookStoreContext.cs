@@ -13,6 +13,6 @@ namespace RepositoryLayer.Context
 
         }
 
-        DbSet<UserEntity> usersTable { get; set; }
+        public DbSet<UserEntity> usersTable { get; set; }
     }
 }
