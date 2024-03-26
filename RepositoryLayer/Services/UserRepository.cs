@@ -1,4 +1,4 @@
-﻿using CommonLayer.RequestModels;
+﻿using CommonLayer.RequestModels.UserAuth;
 using CommonLayer.Utilities;
 using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
