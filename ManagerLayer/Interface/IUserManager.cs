@@ -1,4 +1,4 @@
-﻿using CommonLayer.RequestModels;
+﻿using CommonLayer.RequestModels.UserAuth;
 using RepositoryLayer.Entity;
 using System;
 using System.Collections.Generic;
