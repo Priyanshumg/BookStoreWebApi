@@ -1,4 +1,4 @@
-﻿using CommonLayer.RequestModels;
+﻿using CommonLayer.RequestModels.UserAuth;
 using ManagerLayer.Interface;
 using RepositoryLayer.Entity;
 using RepositoryLayer.Interface;

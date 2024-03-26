@@ -1,4 +1,6 @@
-﻿using ManagerLayer.Interface;
+﻿using CommonLayer.RequestModels.BookStore;
+using ManagerLayer.Interface;
+using RepositoryLayer.Entity;
 using RepositoryLayer.Interface;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,11 @@ namespace ManagerLayer.Services
         public BookManager(IBookInterface repository)
         {
             this.repository = repository;
+        }
+
+        public BooksEntity AddBook(AddBookModel model)
+        {
+            return repository.AddBook(model);
         }
     }
 }
