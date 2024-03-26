@@ -147,5 +147,20 @@ namespace RepositoryLayer.Services
                 throw new Exception();
             }
         }
+
+        public bool ResetPassword(string Email, ResetPasswordModel model)
+        {
+            UserEntity user = context.usersTable.FirstOrDefault(x => x.Email == Email);
+            if (user != null)
+            {
+                user.Password = Encrypt(model.newPassword);
+                context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
