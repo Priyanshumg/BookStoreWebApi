@@ -129,5 +129,23 @@ namespace RepositoryLayer.Services
                 signingCredentials: credentials);
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
+        public ForgetPasswordModel ForgetPassword(string UserEmail)
+        {
+            UserEntity user = context.usersTable.FirstOrDefault(x => x.Email == UserEmail);
+            if (user != null)
+            {
+                ForgetPasswordModel model = new ForgetPasswordModel();
+                SendEmail sendEmail = new SendEmail();
+                model.Email = UserEmail;
+                model.token = GenerateToken(UserEmail, user.UserId);
+                sendEmail.Sendmail(model.Email, model.token);
+                return model;
+            }
+            else
+            {
+                throw new Exception();
+            }
+        }
     }
 }
