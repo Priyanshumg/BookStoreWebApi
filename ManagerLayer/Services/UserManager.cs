@@ -30,5 +30,10 @@ namespace ManagerLayer.Services
         {
             return repository.ForgetPassword(UserEmail);
         }
+
+        public bool ResetPassword(string Email, ResetPasswordModel model)
+        {
+            return repository.ResetPassword(Email, model);
+        }
     }
 }
