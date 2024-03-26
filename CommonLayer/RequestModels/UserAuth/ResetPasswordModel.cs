@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CommonLayer.RequestModels
+namespace CommonLayer.RequestModels.UserAuth
 {
     public class ResetPasswordModel
     {
