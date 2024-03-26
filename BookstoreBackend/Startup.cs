@@ -39,6 +39,7 @@ namespace BookstoreBackend
             services.AddTransient<IUserInterface, UserRepository>();
             services.AddTransient<IUserManager, UserManager>();
             services.AddTransient<IBookManager, BookManager>();
+            services.AddTransient<IBookInterface, BookRepository>();
 
 
             // Swagger Configuration

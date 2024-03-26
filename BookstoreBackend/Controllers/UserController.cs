@@ -1,4 +1,4 @@
-﻿using CommonLayer.RequestModels;
+﻿using CommonLayer.RequestModels.UserAuth;
 using CommonLayer.ResponseModel;
 using ManagerLayer.Interface;
 using Microsoft.AspNetCore.Authorization;
