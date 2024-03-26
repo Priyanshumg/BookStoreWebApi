@@ -3,7 +3,9 @@ using CommonLayer.ResponseModel;
 using ManagerLayer.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using RepositoryLayer.Entity;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace BookstoreBackend.Controllers
 {
@@ -43,5 +45,29 @@ namespace BookstoreBackend.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("Login")]
+        public ActionResult Login(LoginModel model)
+        {
+            var response = userManager.UserLogin(model);
+            if (response != null) 
+            {
+                return Ok(new ResponseModel<string>
+                {
+                    success = true,
+                    Message = "Account Created",
+                    Data = response
+                });
+            }
+            else
+            {
+                return BadRequest(new ResponseModel<string>
+                {
+                    success = false,
+                    Message = "Failed to Login",
+                    Data = response
+                });
+            }
+        }
     }
 }
