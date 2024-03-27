@@ -130,5 +130,30 @@ namespace BookstoreBackend.Controllers
                 });
             }
         }
+
+        [HttpGet]
+        [Route("SortByRecentArrival")]
+        public ActionResult SortByRecentArrival()
+        {
+            var response = bookManager.SortByRecentArrival();
+            if (response != null)
+            {
+                return Ok(new ResponseModel<List<BooksEntity>>
+                {
+                    success = true,
+                    Message = "Books Sorted as per recent arrival",
+                    Data = response
+                });
+            }
+            else
+            {
+                return BadRequest(new ResponseModel<List<BooksEntity>>
+                {
+                    success = false,
+                    Message = "Failed to sort book as per recent arrival",
+                    Data = response
+                });
+            }
+        }
     }
 }
