@@ -11,5 +11,7 @@ namespace ManagerLayer.Interface
         public BooksEntity AddBook(AddBookModel model);
 
         public List<BooksEntity> GetAllBook();
+
+        public BooksEntity GetBookByID(int Id);
     }
 }
