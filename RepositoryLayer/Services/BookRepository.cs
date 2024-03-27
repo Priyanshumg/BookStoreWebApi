@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace RepositoryLayer.Services
 {
@@ -73,6 +74,20 @@ namespace RepositoryLayer.Services
         public List<BooksEntity> SortByOlderFirstArrival()
         {
             return context.BookTable.OrderBy(book => book.CreatedAt).ToList();
+        }
+
+        public List<BooksEntity> Search(string query)
+        {
+            List<BooksEntity> Search = context.BookTable.Where(x => (x.BookName== query) || (x.BookAuthor == query)).ToList();
+            if (Search.Count > 0)
+            {
+                return Search;
+            }
+            else
+            {
+                throw new Exception("No books Found");
+            }
+
         }
     }
 }
