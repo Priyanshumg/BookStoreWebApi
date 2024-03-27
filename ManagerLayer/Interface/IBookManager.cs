@@ -20,5 +20,7 @@ namespace ManagerLayer.Interface
 
         public List<BooksEntity> SortByRecentArrival();
 
+        public List<BooksEntity> SortByOlderFirstArrival();
+
     }
 }
