@@ -20,5 +20,10 @@ namespace ManagerLayer.Services
         {
             return repository.AddBook(model);
         }
+
+        public List<BooksEntity> GetAllBook()
+        {
+            return repository.GetAllBook();
+        }
     }
 }
