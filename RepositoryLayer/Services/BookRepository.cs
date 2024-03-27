@@ -32,6 +32,8 @@ namespace RepositoryLayer.Services
                 newBook.BookDescription = model.BookDescription;
                 newBook.BookImage = model.BookImage;
                 newBook.BookQuantity = model.BookQuantity;
+                newBook.CreatedAt = DateTime.Now;
+                newBook.UpdatedAt = DateTime.Now;
                 context.Add(newBook);
                 context.SaveChanges();
                 return newBook;
