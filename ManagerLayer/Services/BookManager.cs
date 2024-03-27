@@ -47,5 +47,10 @@ namespace ManagerLayer.Services
             return repository.SortByRecentArrival();
         }
 
+        public List<BooksEntity> SortByOlderFirstArrival()
+        {
+            return repository.SortByOlderFirstArrival();
+        }
+
     }
 }
