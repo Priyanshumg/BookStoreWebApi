@@ -56,5 +56,29 @@ namespace BookstoreBackend.Controllers
             return BadRequest(new ResponseModel<List<BooksEntity>> { success = false, Message = " Books Displayed Failed", Data = null });
         }
 
+        [HttpGet]
+        [Route("GetBookByID")]
+        public ActionResult GetBookbyID(int Id)
+        {
+            var response = bookManager.GetBookByID(Id);
+            if (response != null)
+            {
+                return Ok(new ResponseModel<BooksEntity>
+                {
+                    success= true,
+                    Message="fetched book with bookId",
+                    Data=response
+                });
+            }
+            else
+            {
+                return BadRequest(new ResponseModel<BooksEntity>
+                {
+                    success = false,
+                    Message = "Internal Error, Failed to fetch data",
+                    Data = response
+                });
+            }
+        }
     }
 }
