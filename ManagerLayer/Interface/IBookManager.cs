@@ -16,6 +16,7 @@ namespace ManagerLayer.Interface
 
         public List<BooksEntity> SortAndDisplayElementsInAscendingOrder();
 
+        public List<BooksEntity> SortBooksByPriceDescending();
 
     }
 }
