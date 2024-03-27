@@ -22,5 +22,6 @@ namespace ManagerLayer.Interface
 
         public List<BooksEntity> SortByOlderFirstArrival();
 
+        public List<BooksEntity> Search(string query);
     }
 }
