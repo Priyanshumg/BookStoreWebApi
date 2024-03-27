@@ -47,5 +47,9 @@ namespace RepositoryLayer.Services
             return context.BookTable.ToList();
         }
 
+        public BooksEntity GetBookByID(int Id)
+        {
+            return context.BookTable.FirstOrDefault(book => book.BookId == Id);
+        }
     }
 }
