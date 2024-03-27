@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters.Xml;
 using RepositoryLayer.Entity;
+using System.Collections.Generic;
 
 namespace BookstoreBackend.Controllers
 {
@@ -42,5 +43,18 @@ namespace BookstoreBackend.Controllers
                 });
             }
         }
+
+        [HttpGet]
+        [Route("GetAllBooks")]
+        public ActionResult GetAllBooks()
+        {
+            var response = bookManager.GetAllBook();
+            if (response != null)
+            {
+                return Ok(new ResponseModel<List<BooksEntity>> { success = true, Message = "Books Displayed", Data = response });
+            }
+            return BadRequest(new ResponseModel<List<BooksEntity>> { success = false, Message = " Books Displayed Failed", Data = null });
+        }
+
     }
 }
