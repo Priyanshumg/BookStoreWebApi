@@ -13,5 +13,9 @@ namespace ManagerLayer.Interface
         public List<BooksEntity> GetAllBook();
 
         public BooksEntity GetBookByID(int Id);
+
+        public List<BooksEntity> SortAndDisplayElementsInAscendingOrder();
+
+
     }
 }
