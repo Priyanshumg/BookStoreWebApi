@@ -46,5 +46,30 @@ namespace BookstoreBackend.Controllers
                 });
             }
         }
+
+        [HttpGet]
+        [Route("FeedbackByBookId")]
+        public ActionResult GetFeedBackByBookId(int Id)
+        {
+            var response = feedbackManager.GetFeedBackByBookId(Id);
+            if (response != null)
+            {
+                return Ok(new ResponseModel<List<FeedBackEntity>>
+                {
+                    success = true,
+                    Message = "Feedback Fetched succesfully using bookId",
+                    Data = response
+                });
+            }
+            else
+            {
+                return Ok(new ResponseModel<List<FeedBackEntity>>
+                {
+                    success = true,
+                    Message = "Failed to fetch Feedback using BookId",
+                    Data = response
+                });
+            }
+        }
     }
 }
