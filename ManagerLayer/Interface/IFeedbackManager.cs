@@ -7,5 +7,6 @@ namespace ManagerLayer.Interface
     public interface IFeedbackManager
     {
         public FeedBackEntity AddFeedback(AddFeedback model, int UserId);
+        public List<FeedBackEntity> GetFeedBackByBookId(int Id);
     }
 }
