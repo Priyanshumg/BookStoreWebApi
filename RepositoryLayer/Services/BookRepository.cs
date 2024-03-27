@@ -64,5 +64,10 @@ namespace RepositoryLayer.Services
 
             return context.BookTable.OrderByDescending(book => book.Price).ToList();
         }
+
+        public List<BooksEntity> SortByRecentArrival()
+        {
+            return context.BookTable.OrderByDescending(book => book.CreatedAt).ToList();
+        }
     }
 }

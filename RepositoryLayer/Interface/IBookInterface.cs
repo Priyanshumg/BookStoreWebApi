@@ -17,5 +17,7 @@ namespace RepositoryLayer.Interface
         public List<BooksEntity> SortAndDisplayElementsInAscendingOrder();
 
         public List<BooksEntity> SortBooksByPriceDescending();
+
+        public List<BooksEntity> SortByRecentArrival();
     }
 }
