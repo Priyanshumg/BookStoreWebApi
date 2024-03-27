@@ -51,5 +51,10 @@ namespace RepositoryLayer.Services
         {
             return context.BookTable.FirstOrDefault(book => book.BookId == Id);
         }
+
+        public List<BooksEntity> SortAndDisplayElementsInAscendingOrder()
+        {
+            return context.BookTable.OrderBy(book => book.Price).ToList();
+        }
     }
 }
