@@ -36,5 +36,10 @@ namespace RepositoryLayer.Services
                 throw new Exception("Book Not Found");
             }
         }
+
+        public List<FeedBackEntity> GetFeedBackByBookId(int Id)
+        {
+            return context.FeedbackTable.Where(feedback => feedback.BookId == Id).ToList();
+        }
     }
 }
