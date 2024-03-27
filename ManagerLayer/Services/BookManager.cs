@@ -52,5 +52,10 @@ namespace ManagerLayer.Services
             return repository.SortByOlderFirstArrival();
         }
 
+        public List<BooksEntity> Search(string query)
+        {
+            return repository.Search(query);
+        }
+
     }
 }
