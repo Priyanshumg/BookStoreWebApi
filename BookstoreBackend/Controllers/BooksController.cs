@@ -106,6 +106,29 @@ namespace BookstoreBackend.Controllers
                 });
             }
         }
-
+        [HttpGet]
+        [Route("SortDataByDescendingOrder")]
+        public ActionResult SortBooksByPriceDescending()
+        {
+            var response = bookManager.SortBooksByPriceDescending();
+            if (response != null)
+            {
+                return Ok(new ResponseModel<List<BooksEntity>>
+                {
+                    success = true,
+                    Message = "Books Sorted in Descending Order",
+                    Data = response
+                });
+            }
+            else
+            {
+                return BadRequest(new ResponseModel<List<BooksEntity>>
+                {
+                    success = false,
+                    Message = "Failed to sort elements",
+                    Data = response
+                });
+            }
+        }
     }
 }
