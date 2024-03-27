@@ -158,7 +158,7 @@ namespace BookstoreBackend.Controllers
 
 
         [HttpGet]
-        [Route("SortByRecentArrival")]
+        [Route("SortByOlderArrival")]
         public ActionResult SortByOlderFirstArrival()
         {
             var response = bookManager.SortByOlderFirstArrival();
@@ -176,7 +176,32 @@ namespace BookstoreBackend.Controllers
                 return BadRequest(new ResponseModel<List<BooksEntity>>
                 {
                     success = false,
-                    Message = "Failed to sort book as per oldest arrival first",
+                    Message = "Failed to sort book as per older arrival",
+                    Data = response
+                });
+            }
+        }
+
+        [HttpGet]
+        [Route("Search")]
+        public ActionResult Search(string query)
+        {
+            var response = bookManager.Search(query);
+            if (response != null)
+            {
+                return Ok(new ResponseModel<List<BooksEntity>>
+                {
+                    success = true,
+                    Message = "Search successfully",
+                    Data = response
+                });
+            }
+            else
+            {
+                return BadRequest(new ResponseModel<List<BooksEntity>>
+                {
+                    success = false,
+                    Message = "Failed to Search",
                     Data = response
                 });
             }
