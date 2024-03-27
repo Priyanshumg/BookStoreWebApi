@@ -9,5 +9,7 @@ namespace RepositoryLayer.Interface
     public interface IBookInterface
     {
         public BooksEntity AddBook(AddBookModel model);
+
+        public List<BooksEntity> GetAllBook();
     }
 }
