@@ -63,6 +63,34 @@ namespace RepositoryLayer.Migrations
                     b.ToTable("BookTable");
                 });
 
+            modelBuilder.Entity("RepositoryLayer.Entity.FeedBackEntity", b =>
+                {
+                    b.Property<int>("FeedBackID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CustomerFeedback")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("CustomerRatings")
+                        .HasColumnType("real");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("FeedBackID");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("FeedbackTable");
+                });
+
             modelBuilder.Entity("RepositoryLayer.Entity.UserEntity", b =>
                 {
                     b.Property<int>("UserId")
@@ -89,6 +117,21 @@ namespace RepositoryLayer.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("usersTable");
+                });
+
+            modelBuilder.Entity("RepositoryLayer.Entity.FeedBackEntity", b =>
+                {
+                    b.HasOne("RepositoryLayer.Entity.BooksEntity", "BookTable")
+                        .WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RepositoryLayer.Entity.UserEntity", "UserTable")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
