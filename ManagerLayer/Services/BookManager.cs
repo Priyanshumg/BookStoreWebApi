@@ -31,5 +31,13 @@ namespace ManagerLayer.Services
         {
             return repository.GetBookByID(Id);
         }
+
+        public List<BooksEntity> SortAndDisplayElementsInAscendingOrder()
+        {
+            return repository.SortAndDisplayElementsInAscendingOrder();
+        }
+
+
+
     }
 }
