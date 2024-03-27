@@ -4,6 +4,7 @@ using RepositoryLayer.Entity;
 using RepositoryLayer.Interface;
 using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
 namespace ManagerLayer.Services
@@ -24,6 +25,11 @@ namespace ManagerLayer.Services
         public List<BooksEntity> GetAllBook()
         {
             return repository.GetAllBook();
+        }
+
+        public BooksEntity GetBookByID(int Id)
+        {
+            return repository.GetBookByID(Id);
         }
     }
 }
