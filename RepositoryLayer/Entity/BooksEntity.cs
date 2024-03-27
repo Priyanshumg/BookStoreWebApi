@@ -33,5 +33,9 @@ namespace RepositoryLayer.Entity
 
         [Required]
         public int BookQuantity { get; set; }
+
+        public DateTime CreatedAt { get; set; }
+
+        public DateTime UpdatedAt { get; set; }
     }
 }
