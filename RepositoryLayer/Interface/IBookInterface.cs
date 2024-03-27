@@ -20,5 +20,7 @@ namespace RepositoryLayer.Interface
 
         public List<BooksEntity> SortByRecentArrival();
         public List<BooksEntity> SortByOlderFirstArrival();
+
+        public List<BooksEntity> Search(string query);
     }
 }
