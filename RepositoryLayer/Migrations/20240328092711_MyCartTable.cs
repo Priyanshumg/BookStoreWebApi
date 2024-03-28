@@ -2,7 +2,7 @@
 
 namespace RepositoryLayer.Migrations
 {
-    public partial class CartTable : Migration
+    public partial class MyCartTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

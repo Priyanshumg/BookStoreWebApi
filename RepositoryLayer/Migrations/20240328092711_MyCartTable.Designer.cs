@@ -10,8 +10,8 @@ using RepositoryLayer.Context;
 namespace RepositoryLayer.Migrations
 {
     [DbContext(typeof(BookStoreContext))]
-    [Migration("20240328062728_CartTable")]
-    partial class CartTable
+    [Migration("20240328092711_MyCartTable")]
+    partial class MyCartTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
