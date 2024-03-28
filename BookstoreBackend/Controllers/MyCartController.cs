@@ -46,5 +46,34 @@ namespace BookstoreBackend.Controllers
                 });
             }
         }
+
+        [HttpDelete]
+        [Route("RemoveFromCart")]
+        [Authorize]
+        public ActionResult RemoveBookFromCart(int BookId)
+        {
+            int UserId = Convert.ToInt32(User.FindFirst("UserId").Value);
+            var response = myCartManager.RemoveFromCart(BookId, UserId);
+            {
+                if (response != null)
+                {
+                    return Ok(new ResponseModel<MyCartEntity>
+                    {
+                        success = true,
+                        Message = "Book Removed from cart Successfully",
+                        Data = response
+                    });
+                }
+                else
+                {
+                    return BadRequest(new ResponseModel<MyCartEntity>
+                    {
+                        success = false,
+                        Message = "Failed To Add into Cart",
+                        Data = response
+                    });
+                }
+            }
+        }
     }
 }
