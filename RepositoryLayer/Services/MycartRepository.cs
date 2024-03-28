@@ -1,6 +1,7 @@
 ﻿using CommonLayer.RequestModels.BookStore;
 using CommonLayer.RequestModels.MyCart;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.IdentityModel.Tokens;
 using RepositoryLayer.Context;
 using RepositoryLayer.Entity;
@@ -9,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace RepositoryLayer.Services
 {
@@ -52,6 +54,13 @@ namespace RepositoryLayer.Services
             {
                 throw new Exception("User Dosent Exist");
             }
+        }
+        public MyCartEntity RemoveFromCart(int BookId,int UserId)
+        {
+            MyCartEntity RemoveBook = context.MyCartTable.FirstOrDefault(x => (x.BookId == BookId) && (x.UserId == UserId));
+            context.Remove(RemoveBook);
+            context.SaveChanges();
+            return RemoveBook;
         }
     }
 }

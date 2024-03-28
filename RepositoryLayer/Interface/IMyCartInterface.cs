@@ -9,5 +9,6 @@ namespace RepositoryLayer.Interface
     public interface IMyCartInterface
     {
         public MyCartEntity AddToCart(AddToCartModel model, int UserId);
+        public MyCartEntity RemoveFromCart(int BookId, int UserId);
     }
 }
