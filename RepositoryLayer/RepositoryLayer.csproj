@@ -5,6 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20240328093417_MyCartTable-update.cs" />
+    <Compile Remove="Migrations\20240328093417_MyCartTable-update.Designer.cs" />
+    <Compile Remove="Migrations\20240328093512_MyCartTable-update.cs" />
+    <Compile Remove="Migrations\20240328093512_MyCartTable-update.Designer.cs" />
+    <Compile Remove="Migrations\20240328093609_MyCartTable-update.cs" />
+    <Compile Remove="Migrations\20240328093609_MyCartTable-update.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
