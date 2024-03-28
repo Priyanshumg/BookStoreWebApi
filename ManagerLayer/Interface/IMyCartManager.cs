@@ -9,5 +9,7 @@ namespace ManagerLayer.Interface
     public interface IMyCartManager
     {
         public MyCartEntity AddToCart(AddToCartModel model, int UserId);
+
+        public MyCartEntity RemoveFromCart(int BookId, int UserId);
     }
 }
