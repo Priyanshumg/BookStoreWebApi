@@ -1,4 +1,6 @@
-﻿using ManagerLayer.Interface;
+﻿using CommonLayer.RequestModels.MyCart;
+using ManagerLayer.Interface;
+using RepositoryLayer.Entity;
 using RepositoryLayer.Interface;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,11 @@ namespace ManagerLayer.Services
         public MyCartManager(IMyCartInterface repository)
         {
             this.repository = repository;
+        }
+
+        public MyCartEntity AddToCart(AddToCartModel model, int UserId)
+        {
+            return repository.AddToCart(model, UserId);
         }
     }
 }
