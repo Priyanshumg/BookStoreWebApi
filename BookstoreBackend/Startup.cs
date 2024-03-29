@@ -44,6 +44,8 @@ namespace BookstoreBackend
             services.AddTransient<IFeedbackRepository, FeedbackRepository>();
             services.AddTransient<IMyCartInterface, MycartRepository>();
             services.AddTransient<IMyCartManager, MyCartManager>();
+            services.AddTransient<IWishListRepository, WishListRepository>();
+            services.AddTransient<IWishListRepository,WishListRepository>();
 
             // Swagger Configuration
             services.AddSwaggerGen(option =>
