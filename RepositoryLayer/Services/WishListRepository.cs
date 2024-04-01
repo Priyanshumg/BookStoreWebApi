@@ -37,5 +37,16 @@ namespace RepositoryLayer.Services
             return wishlist;
         }
 
+        public MyWishListEntity RemoveFromWishList(int UserId, int BookId)
+        {
+            var existingbook = context.WishListTable.FirstOrDefault(x => x.UserId == UserId && x.BookId == BookId);
+            if (existingbook != null)
+            {
+                context.WishListTable.Remove(existingbook);
+                context.SaveChanges();
+                return existingbook;
+            }
+            throw new Exception("Book doesnot present in the wishList");
+        }
     }
 }
