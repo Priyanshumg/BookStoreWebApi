@@ -29,13 +29,13 @@ namespace BookstoreBackend.Controllers
                 var response = manager.AddToWishList(userId, BookId);
                 if (response != null)
                 {
-                    return Ok(new ResponseModel<MyWishList> { Success = true, Message = "Added to WishList", Data = response });
+                    return Ok(new ResponseModel<MyWishListEntity> { success = true, Message = "Added to WishList", Data = response });
                 }
-                return BadRequest(new ResModel<WishListEntity> { Success = false, Message = "Adding to WishList Failed", Data = null });
+                return BadRequest(new ResponseModel<MyWishListEntity> { success = false, Message = "Adding to WishList Failed", Data = null });
             }
             catch (Exception ex)
             {
-                return BadRequest(new ResModel<WishListEntity> { Success = false, Message = ex.Message });
+                return BadRequest(new ResponseModel<MyWishListEntity> { success = false, Message = ex.Message });
             }
         }
 
