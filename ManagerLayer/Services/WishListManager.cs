@@ -1,4 +1,5 @@
 ﻿using ManagerLayer.Interface;
+using RepositoryLayer.Entity;
 using RepositoryLayer.Interface;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,10 @@ namespace ManagerLayer.Services
         public WishListManager(IWishListRepository repository)
         {
             this.repository = repository;
+        }
+        public MyWishListEntity AddToWishList(int UserId, int BookId)
+        {
+            return repository.AddToWishList(UserId, BookId);
         }
     }
 }
