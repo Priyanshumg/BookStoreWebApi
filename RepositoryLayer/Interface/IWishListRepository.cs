@@ -11,5 +11,6 @@ namespace RepositoryLayer.Interface
 
         public List<MyWishListEntity> GetAllWishListNotes(int UserId);
 
+        public MyWishListEntity RemoveFromWishList(int UserId, int BookId);
     }
 }
