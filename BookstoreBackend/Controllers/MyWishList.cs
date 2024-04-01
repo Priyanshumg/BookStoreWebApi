@@ -53,7 +53,25 @@ namespace BookstoreBackend.Controllers
             }
             return BadRequest(new ResponseModel<List<MyWishListEntity>> { success = false, Message = "Fetching of notes failed", Data = null });
         }
-
-
+        [Authorize]
+        [HttpDelete]
+        [Route("RemoveFromWishList")]
+        public ActionResult RemoveFromWishList(int BookId)
+        {
+            try
+            {
+                int userId = Convert.ToInt32(User.FindFirst("UserId").Value);
+                var response = manager.RemoveFromWishList(userId, BookId);
+                if (response != null)
+                {
+                    return Ok(new ResponseModel<MyWishListEntity> { success = true, Message = "Removed From WishList", Data = response });
+                }
+                return BadRequest(new ResponseModel<MyWishListEntity> { success = false, Message = "Removed From WishList Failed", Data = null });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ResponseModel<MyWishListEntity> { success = false, Message = ex.Message });
+            }
+        }
     }
 }
