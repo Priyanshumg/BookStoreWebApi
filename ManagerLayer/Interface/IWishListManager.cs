@@ -8,5 +8,6 @@ namespace ManagerLayer.Interface
     public interface IWishListManager
     {
         public MyWishListEntity AddToWishList(int UserId, int BookId);
+        public List<MyWishListEntity> GetAllWishListNotes(int UserId)
     }
 }
