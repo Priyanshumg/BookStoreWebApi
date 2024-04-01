@@ -30,5 +30,12 @@ namespace RepositoryLayer.Services
             }
             throw new Exception("Book Already exist in the wishList");
         }
+
+        public List<MyWishListEntity> GetAllWishListNotes(int UserId)
+        {
+            List<MyWishListEntity> wishlist = context.WishListTable.Where(x => x.UserId == UserId).ToList();
+            return wishlist;
+        }
+
     }
 }
