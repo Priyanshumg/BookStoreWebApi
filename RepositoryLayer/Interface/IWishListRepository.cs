@@ -8,5 +8,8 @@ namespace RepositoryLayer.Interface
     public interface IWishListRepository
     {
         public MyWishListEntity AddToWishList(int UserId, int BookId);
+
+        public List<MyWishListEntity> GetAllWishListNotes(int UserId);
+
     }
 }
